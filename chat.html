@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Chat</title>
+		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="chat.css">
+	</head>
+
+	<body>
+		<div id="container">
+			<header>
+				<button onclick="showAccountEditor()">Minha conta</button>
+				<b id="headerUsername"></b>
+				<button onclick="logout()" id="logoutBt">Sair</button>
+			</header>
+
+			<article>
+				<aside>
+					<ul id="usersList">
+						<b>Usuários</b>
+						<li>Você</li>
+					</ul>
+				</aside>
+
+				<section>
+					<div id="chat"></div>
+				</section>
+			</article>
+
+			<footer>
+				<textarea id="msgInput" placeholder="Digite sua mensagem..."></textarea>
+				<button onclick="sendMessage()">Enviar</button>
+			</footer>
+		</div>
+
+
+		<div id="accountEditorWrapper">
+			<div id="accountEditor">
+				<b>Meus dados</b>
+				<input type="text" id="username" placeholder="Nome" autocomplete="username">
+				<input type="text" id="surname" placeholder="Sobrenome" autocomplete="surname">
+				<input type="text" id="cpf" placeholder="Digite seu CPF" onkeyup="setMask('signupCpf')" autocomplete="cpf">
+				<input type="tel" id="phone" placeholder="Telefone" onkeyup="setMask('phone')" autocomplete="tel">
+				<input type="password" id="password" placeholder="Digite sua Senha" autocomplete="password">
+				<input type="password" id="confirmPassword" placeholder="Confirme sua Senha">
+				<button id="delBt" onclick="delAccount()">Excluir minha conta</button>
+				<div style="text-align: right;">
+					<button onclick="editAccount()">Editar</button>
+					<button onclick="closeAccountEditor()">Cancelar</button>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
+		<script src="chat.js"></script>
+	</body>
+
+</html>
