@@ -1,4 +1,4 @@
-const baseUrl = 'http://192.168.100.100:3000/'
+const baseUrl = 'http://localhost:3000/'
 
 function login() {
 	axios.post(`${ baseUrl }userscrud/authenticate`, {
